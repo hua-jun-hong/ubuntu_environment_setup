@@ -6,19 +6,21 @@ syntax on
 set encoding=utf-8
 set background=dark
 set t_Co=256
-color desert
+color darkblue
 set expandtab
 set tabstop=2
 set shiftwidth=2
 set backspace=indent,eol,start
+
 set hlsearch
 highlight Visual cterm=bold ctermbg=DarkMagenta ctermfg=NONE
 highlight Search cterm=bold ctermbg=DarkMagenta ctermfg=NONE
 set hidden
 
-highlight CursorLine term=bold cterm=bold guibg=Grey
+set cursorline
+highlight CursorLine term=bold cterm=bold ctermbg=NONE guibg=black
 set cursorcolumn
-highlight CursorColumn term=bold cterm=bold ctermbg=black guibg=Grey
+highlight CursorColumn term=bold cterm=bold ctermbg=NONE guibg=black
 
 
 call plug#begin('~/.vim/plugged')
