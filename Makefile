@@ -10,7 +10,6 @@ install.vim8:
 
 .PHONY: install.nvim
 install.nvim:
-	@ make install.vim8
 	@ curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage && \
 		chmod u+x nvim.appimage && \
 		cp nvim.appimage $$(dirname $$(which conda))/nvim
