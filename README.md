@@ -1,2 +1,5 @@
-# ubuntu_environment_setup
-WARNING!: if your run make all, the script will add miniconda/bin to the head of your environment PATH.
+1. make install.miniconda3
+2. restart terminal
+3. make all
+4. make config.zsh
+5. restart terminal

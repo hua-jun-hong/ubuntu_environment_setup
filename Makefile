@@ -3,7 +3,6 @@ install.miniconda3:
 	@ echo export PATH='$$PATH':$$HOME/miniconda3/bin >> $$HOME/.bashrc
 	@ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 	@ bash Miniconda3-latest-Linux-x86_64.sh
-	@ echo PLEASE RESTART YOUR TERMINAL
 
 .PHONY: install.nvim
 install.nvim:
@@ -17,6 +16,7 @@ install.conda.tools:
 		tmux vim cmake git
 	@ conda install -y -c conda-forge \
 		zsh fzf neovim ripgrep
+	@ echo alias vim='$$HOME/miniconda3/bin/vim' >> $$HOME/.bashrc
 
 .PHONY: install.vimrc.with.plug
 install.vimrc.with.plug:
@@ -33,11 +33,15 @@ install.ctags:
 install.ohmyzsh:
 	@ curl -Lo install.sh https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 	@ sh install.sh
+
+.PHONY: config.zsh
+config.zsh:
 	@ sed -i '/ZSH_THEME="/c\ZSH_THEME="lukerandall"' $$HOME/.zshrc
 	@ sed -i '/plugins=(git)/c\plugins=(git autojump)' $$HOME/.zshrc
 	@ echo source $$HOME/.vim/plugged/fzf/shell/completion.zsh >> $$HOME/.zshrc
 	@ echo source $$HOME/.vim/plugged/fzf/shell/key-bindings.zsh >> $$HOME/.zshrc
 	@ echo exec zsh >> $$HOME/.bashrc
+
 
 .PHONY: install.autojump
 install.autojump:
