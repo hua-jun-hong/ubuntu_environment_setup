@@ -35,6 +35,9 @@ install.ohmyzsh:
 	@ sh install.sh
 	@ sed -i '/ZSH_THEME="/c\ZSH_THEME="lukerandall"' $$HOME/.zshrc
 	@ sed -i '/plugins=(git)/c\plugins=(git autojump)' $$HOME/.zshrc
+	@ echo source $$HOME/.vim/plugged/fzf/shell/completion.zsh >> $$HOME/.zshrc
+	@ echo source $$HOME/.vim/plugged/fzf/shell/key-bindings.zsh >> $$HOME/.zshrc
+	@ echo exec zsh >> $$HOME/.bashrc
 
 .PHONY: install.autojump
 install.autojump:
@@ -48,13 +51,9 @@ config.tmux:
 
 .PHONY: all
 all:
-	@ echo source $$HOME/.vim/plugged/fzf/shell/completion.zsh >> $$HOME/.bashrc
-	@ echo source $$HOME/.vim/plugged/fzf/shell/key-bindings.zsh >> $$HOME/.bashrc
-	@ echo exec zsh >> $$HOME/.bashrc
 	@ make install.conda.tools
 	@ make install.ctags
 	@ make install.vimrc.with.plug
 	@ make config.tmux
 	@ make install.autojump
 	@ make install.ohmyzsh
-	@ echo PLEASE RESTART YOUR TERMINAL
