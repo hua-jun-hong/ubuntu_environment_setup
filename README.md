@@ -1,3 +1,4 @@
+## Installation
 1. make install.miniconda3
 2. restart terminal
 3. make all

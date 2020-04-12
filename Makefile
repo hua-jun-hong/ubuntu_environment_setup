@@ -16,7 +16,6 @@ install.conda.tools:
 		tmux vim cmake git
 	@ conda install -y -c conda-forge \
 		zsh fzf neovim ripgrep
-	@ echo alias vim='$$HOME/miniconda3/bin/vim' >> $$HOME/.bashrc
 
 .PHONY: install.vimrc.with.plug
 install.vimrc.with.plug:
@@ -40,6 +39,7 @@ config.zsh:
 	@ sed -i '/plugins=(git)/c\plugins=(git autojump)' $$HOME/.zshrc
 	@ echo source $$HOME/.vim/plugged/fzf/shell/completion.zsh >> $$HOME/.zshrc
 	@ echo source $$HOME/.vim/plugged/fzf/shell/key-bindings.zsh >> $$HOME/.zshrc
+	@ echo alias vim='$$HOME/miniconda3/bin/vim' >> $$HOME/.zshrc
 	@ echo exec zsh >> $$HOME/.bashrc
 
 
