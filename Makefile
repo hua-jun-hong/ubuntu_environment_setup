@@ -32,6 +32,12 @@ install.ohmyzsh:
 	@ curl -Lo install.sh https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 	@ sh install.sh
 	@ sed -i '/ZSH_THEME="/c\ZSH_THEME="lukerandall"' $$HOME/.zshrc
+	@ sed -i '/plugins=(git)/c\plugins=(git autojump)' $$HOME/.zshrc
+
+.PHONY: install.autojump
+install.autojump:
+	@ git clone https://github.com/wting/autojump.git; cd autojump; ./install.py; cd ..; rm -rf autojump
+	@ echo [[ -s $$HOME/.autojump/etc/profile.d/autojump.sh ]] && source $$HOME/.autojump/etc/profile.d/autojump.sh >> $$HOME/.bashrc
 
 .PHONY: config.tmux
 config.tmux:
@@ -42,10 +48,12 @@ config.tmux:
 all:
 	@ make install.ctags
 	@ make install.miniconda3
-	@ echo export PATH=$$HOME/miniconda3/bin:'$$PATH' >> $$HOME/.bashrc; source $$HOME/.bashrc
 	@ make install.conda.tools
 	@ make install.vimrc.with.plug
 	@ mkae install.ohmyzsh
-	@ source $$HOME/.vim/plugged/fzf/shell/completion.zsh
-	@ source $$HOME/.vim/plugged/fzf/shell/key-bindings.zsh
+	@ make config.tmux
+	@ make install.autojump
+	@ echo export PATH=$$HOME/miniconda3/bin:'$$PATH' >> $$HOME/.bashrc; source $$HOME/.bashrc
+	@ echo source $$HOME/.vim/plugged/fzf/shell/completion.zsh >> $$HOME/.bashrc
+	@ echo source $$HOME/.vim/plugged/fzf/shell/key-bindings.zsh >> $$HOME/.bashrc
 	@ echo exec zsh >> $$HOME/.bashrc
