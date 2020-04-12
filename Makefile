@@ -33,6 +33,11 @@ install.ohmyzsh:
 	@ sh install.sh
 	@ sed -i '/ZSH_THEME="/c\ZSH_THEME="lukerandall"' $$HOME/.zshrc
 
+.PHONY: config.tmux
+config.tmux:
+	@ cp .tmux.conf $$HOME/.
+	@ tmux source-file ~/.tmux.conf
+
 .PHONY: all
 all:
 	@ make install.ctags
