@@ -2,7 +2,7 @@
 install.miniconda3:
 	@ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh && \
 		bash Miniconda3-latest-Linux-x86_64.sh
-	@ source $$HOME/miniconda3/bin/activate
+	@ echo export PATH=$$HOME/miniconda3/bin:'$$PATH' >> $$HOME/.bashrc; source $$HOME/.bashrc
 
 .PHONY: install.vim8
 install.vim8:
