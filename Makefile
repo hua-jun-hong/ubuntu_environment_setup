@@ -3,10 +3,6 @@ install.miniconda3:
 	@ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh && \
 		bash Miniconda3-latest-Linux-x86_64.sh
 
-.PHONY: install.vim8
-install.vim8:
-	@ sudo add-apt-repository ppa:jonathonf/vim; sudo apt-get update; sudo apt-get install vim
-
 .PHONY: install.nvim
 install.nvim:
 	@ curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage && \
@@ -31,6 +27,12 @@ install.vimrc.with.plug:
 install.ctags:
 	@ tar -zvxf ctags-5.6.tar.gz; cd ctags-5.6; ./configure --prefix=$$HOME; make; make install; cd -; rm -rf ctags-5.6
 
+.PHONY: install.ohmyzsh
+install.ohmyzsh:
+	@ curl -Lo install.sh https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+	@ sh install.sh
+	@ sed -i '/ZSH_THEME="/c\ZSH_THEME="lukerandall"' $$HOME/.zshrc
+
 .PHONY: all
 all:
 	@ make install.ctags
@@ -38,3 +40,6 @@ all:
 	@ echo export PATH=$$HOME/miniconda3/bin:'$$PATH' >> $$HOME/.bashrc; source $$HOME/.bashrc
 	@ make install.conda.tools
 	@ make install.vimrc.with.plug
+	@ mkae install.ohmyzsh
+	@ source $$HOME/.vim/plugged/fzf/shell/completion.zsh
+	@ source $$HOME/.vim/plugged/fzf/shell/key-bindings.zsh
