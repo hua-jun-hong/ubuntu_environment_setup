@@ -43,3 +43,4 @@ all:
 	@ mkae install.ohmyzsh
 	@ source $$HOME/.vim/plugged/fzf/shell/completion.zsh
 	@ source $$HOME/.vim/plugged/fzf/shell/key-bindings.zsh
+	@ echo exec zsh >> $$HOME/.bashrc
