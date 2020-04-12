@@ -1,7 +1,9 @@
 .PHONY: install.miniconda3
 install.miniconda3:
-	@ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh && \
-		bash Miniconda3-latest-Linux-x86_64.sh
+	@ echo export PATH='$$PATH':$$HOME/miniconda3/bin >> $$HOME/.bashrc
+	@ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+	@ bash Miniconda3-latest-Linux-x86_64.sh
+	@ echo PLEASE RESTART YOUR TERMINAL
 
 .PHONY: install.nvim
 install.nvim:
@@ -37,23 +39,22 @@ install.ohmyzsh:
 .PHONY: install.autojump
 install.autojump:
 	@ git clone https://github.com/wting/autojump.git; cd autojump; ./install.py; cd ..; rm -rf autojump
-	@ echo [[ -s $$HOME/.autojump/etc/profile.d/autojump.sh ]] && source $$HOME/.autojump/etc/profile.d/autojump.sh >> $$HOME/.bashrc
+	@ echo '[[ -s $$HOME/.autojump/etc/profile.d/autojump.sh ]] && source $$HOME/.autojump/etc/profile.d/autojump.sh' >> $$HOME/.bashrc
 
 .PHONY: config.tmux
 config.tmux:
 	@ cp .tmux.conf $$HOME/.
-	@ tmux source-file ~/.tmux.conf
+	#@ tmux source-file ~/.tmux.conf
 
 .PHONY: all
 all:
-	@ make install.ctags
-	@ make install.miniconda3
-	@ make install.conda.tools
-	@ make install.vimrc.with.plug
-	@ mkae install.ohmyzsh
-	@ make config.tmux
-	@ make install.autojump
-	@ echo export PATH=$$HOME/miniconda3/bin:'$$PATH' >> $$HOME/.bashrc; source $$HOME/.bashrc
 	@ echo source $$HOME/.vim/plugged/fzf/shell/completion.zsh >> $$HOME/.bashrc
 	@ echo source $$HOME/.vim/plugged/fzf/shell/key-bindings.zsh >> $$HOME/.bashrc
 	@ echo exec zsh >> $$HOME/.bashrc
+	@ make install.conda.tools
+	@ make install.ctags
+	@ make install.vimrc.with.plug
+	@ make config.tmux
+	@ make install.autojump
+	@ make install.ohmyzsh
+	@ echo PLEASE RESTART YOUR TERMINAL
