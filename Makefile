@@ -50,7 +50,7 @@ install.autojump:
 
 .PHONY: config.tmux
 config.tmux:
-	@ cp .tmux.conf $$HOME/.
+	@ cp $$HOME/.tmux.conf $$HOME/.tmux_bk.conf; cp .tmux.conf $$HOME/.
 	#@ tmux source-file ~/.tmux.conf
 
 .PHONY: all
