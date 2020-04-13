@@ -2,15 +2,16 @@
 "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ":PlugInstall
 
-syntax on
-set encoding=utf-8
-set background=dark
-set t_Co=256
-color darkblue
 set expandtab
 set tabstop=2
 set shiftwidth=2
 set backspace=indent,eol,start
+set encoding=utf-8
+
+syntax on
+set background=dark
+set t_Co=256
+color darkblue
 
 set hlsearch
 highlight Visual cterm=bold ctermbg=DarkMagenta ctermfg=NONE
