@@ -18,7 +18,8 @@ This script will setup an friendly environment for programmers. It will install 
 2. shortcuts
 - ctrl+A - (horizontal split) 
 - ctrl+A | (vertical split) 
-- ctrl+A w (new window)
+- ctrl+A w (close pane (i) if last pane is closed the corresponding window will be closed; (ii) if last window is closed, the corresponding session will be closed.)
+- ctrl+A t (new window)
 - ctrl+A #number (switch to window number #)
 - ctrl+A z (toggle full screen)
 - ctrl+X (rotating around split panes)
