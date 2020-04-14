@@ -1,29 +1,6 @@
 "curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ":PlugInstall
-
-set expandtab
-set tabstop=2
-set shiftwidth=2
-set backspace=indent,eol,start
-set encoding=utf-8
-
-syntax on
-set background=dark
-set t_Co=256
-color darkblue
-
-set hlsearch
-highlight Visual cterm=bold ctermbg=DarkMagenta ctermfg=NONE
-highlight Search cterm=bold ctermbg=DarkMagenta ctermfg=NONE
-set hidden
-
-set cursorline
-highlight CursorLine term=bold cterm=bold ctermbg=NONE guibg=black
-set cursorcolumn
-highlight CursorColumn term=bold cterm=bold ctermbg=NONE guibg=black
-
-
 call plug#begin('~/.vim/plugged')
 
 " Tagbar
@@ -69,3 +46,27 @@ let g:EasyMotion_use_upper = 1
 let g:EasyMotion_keys = 'SADFJKLEWCMPGH'
 
 call plug#end() 
+
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+autocmd Filetype c,cpp,python,sh,java,javascript setlocal ts=2 sts=2 sw=2 expandtab
+set backspace=indent,eol,start
+set encoding=utf-8
+
+syntax on
+set background=dark
+set t_Co=256
+color darkblue
+
+set hlsearch
+highlight Visual cterm=bold ctermbg=DarkMagenta ctermfg=NONE
+highlight Search cterm=bold ctermbg=DarkMagenta ctermfg=NONE
+set hidden
+
+set cursorline
+highlight CursorLine term=bold cterm=bold ctermbg=NONE guibg=black
+set cursorcolumn
+highlight CursorColumn term=bold cterm=bold ctermbg=NONE guibg=black
+
