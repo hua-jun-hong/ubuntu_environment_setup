@@ -13,7 +13,7 @@ install.nvim:
 .PHONY: install.conda.tools
 install.conda.tools:
 	@ conda install -y -c conda-forge \
-		tmux vim cmake git
+		tmux vim cmake git gdb
 	@ conda install -y -c conda-forge \
 		zsh fzf neovim ripgrep
 
@@ -40,6 +40,7 @@ config.zsh:
 	@ echo source $$HOME/.vim/plugged/fzf/shell/completion.zsh >> $$HOME/.zshrc
 	@ echo source $$HOME/.vim/plugged/fzf/shell/key-bindings.zsh >> $$HOME/.zshrc
 	@ echo alias vim='$$HOME/miniconda3/bin/vim' >> $$HOME/.zshrc
+	@ echo alias gdb='$$HOME/miniconda3/bin/gdb' >> $$HOME/.zshrc
 	@ echo exec zsh >> $$HOME/.bashrc
 
 
