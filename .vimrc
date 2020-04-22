@@ -70,4 +70,6 @@ highlight CursorLine term=bold cterm=bold ctermbg=NONE guibg=black
 set cursorcolumn
 highlight CursorColumn term=bold cterm=bold ctermbg=NONE guibg=black
 
+hi Normal ctermfg=231 ctermbg=237
+
 packadd termdebug
