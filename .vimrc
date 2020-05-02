@@ -6,6 +6,7 @@ call plug#begin('~/.vim/plugged')
 " Tagbar
 Plug 'vim-scripts/Tagbar'
 map <C-J> :Tagbar<CR>
+let g:tagbar_left=1
 Plug 'vim-scripts/ctags.vim'
 
 " cscope_maps: :cscope
