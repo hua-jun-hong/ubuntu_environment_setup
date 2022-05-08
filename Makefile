@@ -1,6 +1,6 @@
 .PHONY: install.miniconda3
 install.miniconda3:
-	@ echo export PATH='$$PATH':$$HOME/miniconda3/bin >> $$HOME/.bashrc
+	# @ echo export PATH='$$PATH':$$HOME/miniconda3/bin >> $$HOME/.bashrc
 	@ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 	@ bash Miniconda3-latest-Linux-x86_64.sh
 
@@ -54,6 +54,11 @@ config.tmux:
 	@ cp $$HOME/.tmux.conf $$HOME/.tmux_bk.conf; cp .tmux.conf $$HOME/.
 	#@ tmux source-file ~/.tmux.conf
 
+.PHONY: install.fzf
+install.fzf:
+	@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+	@ ~/.fzf/install
+
 .PHONY: all
 all:
 	@ make install.conda.tools
@@ -62,3 +67,4 @@ all:
 	@ make config.tmux
 	@ make install.autojump
 	@ make install.ohmyzsh
+	@ make install.fzf
